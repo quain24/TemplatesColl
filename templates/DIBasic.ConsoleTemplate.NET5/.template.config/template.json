@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Henryk Wiœniewski",
+  "classifications": [ "template", "di", "serilog", "console", ".net 5" ],
+  "identity": "DIBasic.ConsoleTemplate.NET5",
+  "name": "DI configured Console App .NET 5",
+  "shortName": "diconsoleapp",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "DIBasic.ConsoleTemplate.NET5",
+  "sources": [
+    {
+      "modifiers": [
+        { "exclude": [ ".vs/**", ".template_config/**" ] }
+      ]
+    }
+  ],
+
+  "symbols": {
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    }
+  },
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        { "text": "Run 'dotnet restore'" }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}
